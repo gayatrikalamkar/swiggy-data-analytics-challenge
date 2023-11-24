@@ -1,0 +1,55 @@
+Answer the following Questions in 1to 2 lines .
+ 
+● Question 1: What is Pandas, and why is it commonly used in data cleaning tasks?
+
+:- Pandas is a Python library used for data manipulation and analysis. It's commonly used in data cleaning due to its powerful tools for handling missing data, reshaping datasets, and transforming data efficiently.
+
+ ● Question 2: Given a DataFrame with missing values, how would you check for missing values in each column and count the total number of missing values?
+
+:-  # To check missing values in each column
+       df. isnull().sum()
+  # To check total count of missing values in DataFrame
+     df.isnull().sum().sum()
+
+ ● Question 3: How can you remove duplicates from a DataFrame while retaining the first occurrence of each unique row?
+
+:-  # To Remove duplicates, retaining the first occurrence
+     df.drop_duplicates(keep='first', inplace=True)
+
+ ● Question 4: If you have a DataFrame with a column containing string values, how can you convert all the values in that column to lowercase? 
+
+:-  # Convert column 'column_name' to lowercase
+    df['column_name'] = df['column_name'].str.lower()
+
+● Question 5: How do you replace missing values in a DataFrame with a specific value, like 0, for a particular column? 
+
+:-  # To Replace missing values in 'column_name' with 0
+      df['column_name'].fillna(0, inplace=True)
+
+● Question 6: If you have a DataFrame with a datetime column, how can you extract the year, month, and day into separate columns?
+
+:-  # To  Extract year, month, and day into separate columns
+   df['Year'] = df['date_column'].dt.year
+   df['Month'] = df['date_column'].dt.month
+   df['Day'] = df['date_column'].dt.day
+
+  ● Question 7: How can you filter rows in a DataFrame where a specific column's values meet a certain condition (e.g., all rows where 'age' is greater than 30)?
+ 
+:- # To Filter rows where 'age' column is greater than 30
+      filtered_df = df.query('age > 30')  
+
+● Question 8: What is the purpose of the .apply() function in Pandas, and how would you use it to create a new column based on values from existing columns? 
+
+:-   # To Create a new column 'new_column' using assign() method
+      df = df.assign(new_column = df['column1'] * df['column2'])
+
+● Question 9: Suppose you want to merge two DataFrames, 'df1' and 'df2,' on a common column 'key.' How would you perform this merge operation in Pandas? 
+
+:-  # To Merge df1 and df2 on 'key' column
+     merged_df = df1.merge(df2, on='key')
+
+● Question 10: You have a DataFrame with a column containing messy text data. How can you clean and standardize the text data (e.g., remove punctuation and convert to lowercase) in that column?
+
+:-  # To Clean text column: remove punctuation and convert to lowercase
+       df['text_column'] = df['text_column'].str.replace('[^\w\s]', '').str.lower()
+
